@@ -12,8 +12,8 @@ cam = Camera()
 while not disp.isDone():
 	original_img = cam.getImage().flipHorizontal()
 	red_distance_img = original_img.colorDistance(color=Color.RED)
-	red_bin = red_distance_img.threshold(112).invert()
-	blobs = red_bin.findBlobs(minsize=5,maxsize=10720)
+	red_bin = red_distance_img.threshold(100).invert()
+	blobs = red_bin.findBlobs(minsize=50,maxsize=10720)
 	if(blobs is not None):
 		blob = max(blobs)
 		mouse.move(15*(blob.x-256),12.5*(blob.y-192))
